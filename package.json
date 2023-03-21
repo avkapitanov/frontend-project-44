@@ -2,7 +2,6 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "Brain Games project",
-  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +9,13 @@
   "bin": {
     "brain-games": "bin/brain-games.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/avkapitanov/frontend-project-44.git"
+  },
   "author": "Artem Kapitanov",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
