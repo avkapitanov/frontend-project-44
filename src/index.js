@@ -10,31 +10,23 @@ const showUserGreeting = (userName) => showText(`Hello, ${userName}!`);
 
 const getUserAnswer = (question) => readlineSync.question(question);
 
-const randomInteger = (min, max) => {
-  const rand = min + Math.random() * (max + 1 - min);
-  return Math.floor(rand);
-};
+const GAME_ATTEMPTS_COUNT = 3;
 
-const isEven = (numb) => numb % 2 === 0;
+export default (game) => {
+  let leftAttempts = GAME_ATTEMPTS_COUNT;
 
-const minNumber = 1;
-const maxNumber = 100;
-const evenAnswer = 'yes';
-const oddAnswer = 'no';
+  const { getQuestionText, runRound } = game();
+  const questionText = getQuestionText();
 
-let leftAttempts = 3;
-const questionText = `Answer "${evenAnswer}" if the number is even, otherwise answer "${oddAnswer}".`;
-
-export default () => {
   showWelcome();
   const userName = askUserName();
   showUserGreeting(userName);
   showText(questionText);
 
   while (leftAttempts > 0) {
-    const numb = randomInteger(minNumber, maxNumber);
-    const correctAnswer = isEven(numb) ? evenAnswer : oddAnswer;
-    showText(`Question: ${numb}`);
+    const { question, correctAnswer } = runRound();
+
+    showText(`Question: ${question}`);
     const userAnswer = getUserAnswer('Your answer: ');
 
     if (userAnswer === correctAnswer) {
