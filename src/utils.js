@@ -16,5 +16,13 @@ export const possibleOperations = {
 export const calcExpression = (operation, op1, op2) => {
   const operationFunc = possibleOperations[operation];
 
-  return String(operationFunc(op1, op2));
+  return operationFunc(op1, op2);
+};
+
+export const gcd = (num1, num2) => {
+  if (!num2) {
+    return num1;
+  }
+
+  return gcd(num2, num1 % num2);
 };

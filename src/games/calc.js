@@ -15,7 +15,7 @@ export default () => {
     const operation = operations[getRandomArrayIndex(operations.length)];
 
     const question = `${op1} ${operation} ${op2}`;
-    const correctAnswer = calcExpression(operation, op1, op2);
+    const correctAnswer = String(calcExpression(operation, op1, op2));
 
     return {
       question,
