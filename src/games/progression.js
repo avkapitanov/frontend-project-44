@@ -11,7 +11,7 @@ import {
 } from '../const.js';
 
 export default () => {
-  const getQuestionText = () => 'What number is missing in the progression?';
+  const questionText = 'What number is missing in the progression?';
 
   const runRound = () => {
     const progressionLength = randomInteger(PROGRESSION_MIN_LENGTH, PROGRESSION_MAX_LENGTH);
@@ -31,7 +31,7 @@ export default () => {
   };
 
   return {
-    getQuestionText,
+    questionText,
     runRound,
   };
 };

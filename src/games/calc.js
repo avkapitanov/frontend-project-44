@@ -4,7 +4,7 @@ import {
 import { CALC_MAX_NUMBER, CALC_MIN_NUMBER } from '../const.js';
 
 export default () => {
-  const getQuestionText = () => 'What is the result of the expression?';
+  const questionText = 'What is the result of the expression?';
 
   const runRound = () => {
     const op1 = randomInteger(CALC_MIN_NUMBER, CALC_MAX_NUMBER);
@@ -22,7 +22,7 @@ export default () => {
   };
 
   return {
-    getQuestionText,
+    questionText,
     runRound,
   };
 };

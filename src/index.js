@@ -15,8 +15,7 @@ const GAME_ATTEMPTS_COUNT = 3;
 export default (game) => {
   let leftAttempts = GAME_ATTEMPTS_COUNT;
 
-  const { getQuestionText, runRound } = game();
-  const questionText = getQuestionText();
+  const { questionText, runRound } = game();
 
   showWelcome();
   const userName = askUserName();
