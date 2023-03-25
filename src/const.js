@@ -15,6 +15,3 @@ export const PROGRESSION_MAX_LENGTH = 10;
 export const PROGRESSION_MIN_STEP = 1;
 export const PROGRESSION_MAX_STEP = 10;
 export const PROGRESSION_REPLACER = '..';
-
-export const POSITIVE_ANSWER_TEXT = 'yes';
-export const NEGATIVE_ANSWER_TEXT = 'no';

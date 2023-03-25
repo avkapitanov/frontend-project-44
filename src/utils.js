@@ -3,8 +3,6 @@ export const randomInteger = (min, max) => {
   return Math.floor(rand);
 };
 
-export const isEven = (numb) => numb % 2 === 0;
-
 export const getRandomArrayIndex = (len) => randomInteger(0, len - 1);
 
 export const possibleOperations = {
