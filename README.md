@@ -14,7 +14,7 @@ npm link
 ## Games
 
 ### Brain Even
-In this game you need to answer "yes" if the number is even, otherwise answer "no"
+In this game you need to answer "yes" if the number is even, otherwise answer "no".
 
 How to run:
 
