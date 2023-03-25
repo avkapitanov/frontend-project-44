@@ -3,10 +3,9 @@ import {
 } from '../utils.js';
 import { CALC_MAX_NUMBER, CALC_MIN_NUMBER } from '../const.js';
 
-export default () => {
-  const questionText = 'What is the result of the expression?';
-
-  const runRound = () => {
+export default () => ({
+  questionText: 'What is the result of the expression?',
+  runRound: () => {
     const op1 = randomInteger(CALC_MIN_NUMBER, CALC_MAX_NUMBER);
     const op2 = randomInteger(CALC_MIN_NUMBER, CALC_MAX_NUMBER);
     const operations = Object.keys(possibleOperations);
@@ -19,10 +18,5 @@ export default () => {
       question,
       correctAnswer,
     };
-  };
-
-  return {
-    questionText,
-    runRound,
-  };
-};
+  },
+});

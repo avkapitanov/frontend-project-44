@@ -3,10 +3,9 @@ import {
 } from '../utils.js';
 import { GCD_MAX_NUMBER, GCD_MIN_NUMBER } from '../const.js';
 
-export default () => {
-  const questionText = 'Find the greatest common divisor of given numbers.';
-
-  const runRound = () => {
+export default () => ({
+  questionText: 'Find the greatest common divisor of given numbers.',
+  runRound: () => {
     const op1 = randomInteger(GCD_MIN_NUMBER, GCD_MAX_NUMBER);
     const op2 = randomInteger(GCD_MIN_NUMBER, GCD_MAX_NUMBER);
 
@@ -17,10 +16,5 @@ export default () => {
       question,
       correctAnswer,
     };
-  };
-
-  return {
-    questionText,
-    runRound,
-  };
-};
+  },
+});

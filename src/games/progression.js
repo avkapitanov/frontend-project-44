@@ -10,10 +10,9 @@ import {
   PROGRESSION_REPLACER,
 } from '../const.js';
 
-export default () => {
-  const questionText = 'What number is missing in the progression?';
-
-  const runRound = () => {
+export default () => ({
+  questionText: 'What number is missing in the progression?',
+  runRound: () => {
     const progressionLength = randomInteger(PROGRESSION_MIN_LENGTH, PROGRESSION_MAX_LENGTH);
     const progressionStep = randomInteger(PROGRESSION_MIN_STEP, PROGRESSION_MAX_STEP);
     const progressionStart = randomInteger(PROGRESSION_MIN_STEP, PROGRESSION_MAX_STEP);
@@ -28,10 +27,5 @@ export default () => {
       question,
       correctAnswer,
     };
-  };
-
-  return {
-    questionText,
-    runRound,
-  };
-};
+  },
+});

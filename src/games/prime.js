@@ -1,10 +1,9 @@
 import { randomInteger, isPrime } from '../utils.js';
 import { PRIME_MAX_NUMBER, PRIME_MIN_NUMBER } from '../const.js';
 
-export default () => {
-  const questionText = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
-  const runRound = () => {
+export default () => ({
+  questionText: 'Answer "yes" if given number is prime. Otherwise answer "no".',
+  runRound: () => {
     const question = randomInteger(PRIME_MIN_NUMBER, PRIME_MAX_NUMBER);
     const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
@@ -12,10 +11,5 @@ export default () => {
       question,
       correctAnswer,
     };
-  };
-
-  return {
-    questionText,
-    runRound,
-  };
-};
+  },
+});
