@@ -11,12 +11,9 @@ export default () => ({
     const operations = Object.keys(possibleOperations);
     const operation = operations[getRandomArrayIndex(operations.length)];
 
-    const question = `${op1} ${operation} ${op2}`;
-    const correctAnswer = String(calcExpression(operation, op1, op2));
-
     return {
-      question,
-      correctAnswer,
+      question: `${op1} ${operation} ${op2}`,
+      correctAnswer: String(calcExpression(operation, op1, op2)),
     };
   },
 });

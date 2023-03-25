@@ -18,14 +18,11 @@ export default () => ({
     const progressionStart = randomInteger(PROGRESSION_MIN_STEP, PROGRESSION_MAX_STEP);
     const progression = generateProgression(progressionStart, progressionStep, progressionLength);
     const indexHide = getRandomArrayIndex(progression.length);
-
-    const correctAnswer = String(progression[indexHide]);
     progression[indexHide] = PROGRESSION_REPLACER;
-    const question = `${progression.join(' ')}`;
 
     return {
-      question,
-      correctAnswer,
+      question: `${progression.join(' ')}`,
+      correctAnswer: String(progression[indexHide]),
     };
   },
 });

@@ -29,15 +29,16 @@ export default (game) => {
     const userAnswer = getUserAnswer('Your answer: ');
 
     if (userAnswer === correctAnswer) {
-      leftAttempts -= 1;
       showText('Correct!');
-      if (leftAttempts === 0) {
-        showText(`Congratulations, ${userName}!`);
-      }
+      leftAttempts -= 1;
     } else {
       showText(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       showText(`Let's try again, ${userName}!`);
       break;
+    }
+
+    if (leftAttempts === 0) {
+      showText(`Congratulations, ${userName}!`);
     }
   }
 };
