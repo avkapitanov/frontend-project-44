@@ -1,5 +1,5 @@
 import {
-  generateProgression,
+  generateProgression, getRandomArrayIndex,
   randomInteger,
 } from '../utils.js';
 import {
@@ -18,7 +18,7 @@ export default () => {
     const progressionStep = randomInteger(PROGRESSION_MIN_STEP, PROGRESSION_MAX_STEP);
     const progressionStart = randomInteger(PROGRESSION_MIN_STEP, PROGRESSION_MAX_STEP);
     const progression = generateProgression(progressionStart, progressionStep, progressionLength);
-    const indexHide = randomInteger(0, progression.length);
+    const indexHide = getRandomArrayIndex(progression.length);
 
     const correctAnswer = String(progression[indexHide]);
     progression[indexHide] = PROGRESSION_REPLACER;
