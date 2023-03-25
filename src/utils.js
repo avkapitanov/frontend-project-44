@@ -26,3 +26,12 @@ export const gcd = (num1, num2) => {
 
   return gcd(num2, num1 % num2);
 };
+
+export const generateProgression = (start, step, len) => {
+  const progression = [];
+  for (let i = 0; i < len; i += 1) {
+    progression.push(start + (i * step));
+  }
+
+  return progression;
+};
