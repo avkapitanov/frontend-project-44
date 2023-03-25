@@ -35,3 +35,16 @@ export const generateProgression = (start, step, len) => {
 
   return progression;
 };
+
+export const isPrime = (numb) => {
+  if (numb < 2) {
+    return false;
+  }
+
+  for (let i = 2, max = Math.sqrt(numb); i <= max; i += 1) {
+    if (numb % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
