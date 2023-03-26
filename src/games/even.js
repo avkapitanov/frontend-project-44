@@ -1,4 +1,4 @@
-import getRandomInteger from '../getRandomInteger.js';
+import getRandomInteger from '../utils.js';
 import { EVEN_MAX_NUMBER, EVEN_MIN_NUMBER } from '../const.js';
 import start from '../index.js';
 

@@ -1,4 +1,4 @@
-import getRandomInteger from '../getRandomInteger.js';
+import getRandomInteger from '../utils.js';
 import { CALC_MAX_NUMBER, CALC_MIN_NUMBER } from '../const.js';
 import start from '../index.js';
 

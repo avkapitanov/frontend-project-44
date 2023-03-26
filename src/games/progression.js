@@ -1,4 +1,4 @@
-import getRandomInteger from '../getRandomInteger.js';
+import getRandomInteger from '../utils.js';
 import {
   PROGRESSION_MAX_LENGTH,
   PROGRESSION_MAX_STEP,
