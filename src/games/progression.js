@@ -1,7 +1,4 @@
-import {
-  generateProgression, getRandomArrayIndex,
-  randomInteger,
-} from '../utils.js';
+import getRandomInteger from '../getRandomInteger.js';
 import {
   PROGRESSION_MAX_LENGTH,
   PROGRESSION_MAX_STEP,
@@ -9,22 +6,35 @@ import {
   PROGRESSION_MIN_STEP,
   PROGRESSION_REPLACER,
 } from '../const.js';
+import start from '../index.js';
 
-export default () => ({
-  questionText: 'What number is missing in the progression?',
-  runRound: () => {
-    const progressionLength = randomInteger(PROGRESSION_MIN_LENGTH, PROGRESSION_MAX_LENGTH);
-    const progressionStep = randomInteger(PROGRESSION_MIN_STEP, PROGRESSION_MAX_STEP);
-    const progressionStart = randomInteger(PROGRESSION_MIN_STEP, PROGRESSION_MAX_STEP);
-    const progression = generateProgression(progressionStart, progressionStep, progressionLength);
-    const indexHide = getRandomArrayIndex(progression.length);
+const generateProgression = (startNumber, step, length) => {
+  const progression = [];
+  for (let i = 0; i < length; i += 1) {
+    progression.push(startNumber + (i * step));
+  }
 
-    const correctAnswer = String(progression[indexHide]);
-    progression[indexHide] = PROGRESSION_REPLACER;
+  return progression;
+};
 
-    return {
-      question: `${progression.join(' ')}`,
-      correctAnswer,
-    };
-  },
-});
+const generateQuestionAndAnswer = () => {
+  const progressionLength = getRandomInteger(PROGRESSION_MIN_LENGTH, PROGRESSION_MAX_LENGTH);
+  const progressionStep = getRandomInteger(PROGRESSION_MIN_STEP, PROGRESSION_MAX_STEP);
+  const progressionStart = getRandomInteger(PROGRESSION_MIN_STEP, PROGRESSION_MAX_STEP);
+  const progression = generateProgression(progressionStart, progressionStep, progressionLength);
+  const indexHide = getRandomInteger(0, progression.length - 1);
+
+  const correctAnswer = String(progression[indexHide]);
+  progression[indexHide] = PROGRESSION_REPLACER;
+
+  return {
+    question: `${progression.join(' ')}`,
+    correctAnswer,
+  };
+};
+
+export default () => {
+  const questionText = 'What number is missing in the progression?';
+
+  start(questionText, generateQuestionAndAnswer);
+};

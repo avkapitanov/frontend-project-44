@@ -1,3 +1,5 @@
+export const ATTEMPTS_COUNT = 3;
+
 export const EVEN_MIN_NUMBER = 0;
 export const EVEN_MAX_NUMBER = 200;
 

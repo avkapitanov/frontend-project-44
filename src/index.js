@@ -1,44 +1,29 @@
 import readlineSync from 'readline-sync';
+import { ATTEMPTS_COUNT } from './const.js';
 
-const showText = (text) => console.log(text);
+export default (questionText, generateQuestionAndAnswer) => {
+  let leftAttempts = ATTEMPTS_COUNT;
 
-const showWelcome = () => showText('Welcome to the Brain Games!');
-
-const askUserName = () => readlineSync.question('May I have your name? ');
-
-const showUserGreeting = (userName) => showText(`Hello, ${userName}!`);
-
-const getUserAnswer = (question) => readlineSync.question(question);
-
-const GAME_ATTEMPTS_COUNT = 3;
-
-export default (game) => {
-  let leftAttempts = GAME_ATTEMPTS_COUNT;
-
-  const { questionText, runRound } = game();
-
-  showWelcome();
-  const userName = askUserName();
-  showUserGreeting(userName);
-  showText(questionText);
+  console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
+  console.log(questionText);
 
   while (leftAttempts > 0) {
-    const { question, correctAnswer } = runRound();
+    const { question, correctAnswer } = generateQuestionAndAnswer();
 
-    showText(`Question: ${question}`);
-    const userAnswer = getUserAnswer('Your answer: ');
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
 
     if (userAnswer === correctAnswer) {
-      showText('Correct!');
+      console.log('Correct!');
       leftAttempts -= 1;
     } else {
-      showText(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      showText(`Let's try again, ${userName}!`);
-      break;
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${userName}!`);
+      return;
     }
 
-    if (leftAttempts === 0) {
-      showText(`Congratulations, ${userName}!`);
-    }
+    console.log(`Congratulations, ${userName}!`);
   }
 };
