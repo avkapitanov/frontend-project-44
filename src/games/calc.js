@@ -1,5 +1,5 @@
 import getRandomInteger from '../utils.js';
-import { CALC_MAX_NUMBER, CALC_MIN_NUMBER } from '../const.js';
+import { CALC_MAX_NUMBER } from '../const.js';
 import start from '../index.js';
 
 const mathOperations = {
@@ -11,14 +11,18 @@ const mathOperations = {
 export const calcExpression = (operation, operand1, operand2) => {
   const operationFunc = mathOperations[operation];
 
+  if (!operationFunc) {
+    throw new Error(`Can't find "${operation}" operation`);
+  }
+
   return operationFunc(operand1, operand2);
 };
 
 const generateQuestionAndAnswer = () => {
-  const firstOperand = getRandomInteger(CALC_MIN_NUMBER, CALC_MAX_NUMBER);
-  const secondOperand = getRandomInteger(CALC_MIN_NUMBER, CALC_MAX_NUMBER);
+  const firstOperand = getRandomInteger({ max: CALC_MAX_NUMBER });
+  const secondOperand = getRandomInteger({ max: CALC_MAX_NUMBER });
   const operations = Object.keys(mathOperations);
-  const operation = operations[getRandomInteger(0, operations.length - 1)];
+  const operation = operations[getRandomInteger({ max: operations.length - 1 })];
 
   return {
     question: `${firstOperand} ${operation} ${secondOperand}`,

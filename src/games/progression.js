@@ -18,11 +18,17 @@ const generateProgression = (startNumber, step, length) => {
 };
 
 const generateQuestionAndAnswer = () => {
-  const progressionLength = getRandomInteger(PROGRESSION_MIN_LENGTH, PROGRESSION_MAX_LENGTH);
-  const progressionStep = getRandomInteger(PROGRESSION_MIN_STEP, PROGRESSION_MAX_STEP);
-  const progressionStart = getRandomInteger(PROGRESSION_MIN_STEP, PROGRESSION_MAX_STEP);
+  const progressionLength = getRandomInteger(
+    { min: PROGRESSION_MIN_LENGTH, max: PROGRESSION_MAX_LENGTH },
+  );
+  const progressionStep = getRandomInteger(
+    { min: PROGRESSION_MIN_STEP, max: PROGRESSION_MAX_STEP },
+  );
+  const progressionStart = getRandomInteger(
+    { min: PROGRESSION_MIN_STEP, max: PROGRESSION_MAX_STEP },
+  );
   const progression = generateProgression(progressionStart, progressionStep, progressionLength);
-  const indexHide = getRandomInteger(0, progression.length - 1);
+  const indexHide = getRandomInteger({ max: progression.length - 1 });
 
   const correctAnswer = String(progression[indexHide]);
   progression[indexHide] = PROGRESSION_REPLACER;

@@ -1,13 +1,15 @@
 import getRandomInteger from '../utils.js';
-import { EVEN_MAX_NUMBER, EVEN_MIN_NUMBER } from '../const.js';
+import { EVEN_MAX_NUMBER } from '../const.js';
 import start from '../index.js';
 
+const isEven = (numb) => numb % 2 === 0;
+
 const generateQuestionAndAnswer = () => {
-  const randomNumber = getRandomInteger(EVEN_MIN_NUMBER, EVEN_MAX_NUMBER);
+  const randomNumber = getRandomInteger({ max: EVEN_MAX_NUMBER });
 
   return {
     question: randomNumber,
-    correctAnswer: randomNumber % 2 === 0 ? 'yes' : 'no',
+    correctAnswer: isEven(randomNumber) ? 'yes' : 'no',
   };
 };
 

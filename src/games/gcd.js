@@ -1,22 +1,22 @@
 import getRandomInteger from '../utils.js';
-import { GCD_MAX_NUMBER, GCD_MIN_NUMBER } from '../const.js';
+import { GCD_MAX_NUMBER } from '../const.js';
 import start from '../index.js';
 
-const calcGreatestCommonDivisor = (firstNumber, secondNumber) => {
+const getGCD = (firstNumber, secondNumber) => {
   if (!secondNumber) {
     return firstNumber;
   }
 
-  return calcGreatestCommonDivisor(secondNumber, firstNumber % secondNumber);
+  return getGCD(secondNumber, firstNumber % secondNumber);
 };
 
 const generateQuestionAndAnswer = () => {
-  const firstOperand = getRandomInteger(GCD_MIN_NUMBER, GCD_MAX_NUMBER);
-  const secondOperand = getRandomInteger(GCD_MIN_NUMBER, GCD_MAX_NUMBER);
+  const firstOperand = getRandomInteger({ max: GCD_MAX_NUMBER });
+  const secondOperand = getRandomInteger({ max: GCD_MAX_NUMBER });
 
   return {
     question: `${firstOperand} ${secondOperand}`,
-    correctAnswer: String(calcGreatestCommonDivisor(firstOperand, secondOperand)),
+    correctAnswer: String(getGCD(firstOperand, secondOperand)),
   };
 };
 

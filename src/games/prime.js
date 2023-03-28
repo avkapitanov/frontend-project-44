@@ -1,5 +1,5 @@
 import getRandomInteger from '../utils.js';
-import { PRIME_MAX_NUMBER, PRIME_MIN_NUMBER } from '../const.js';
+import { PRIME_MAX_NUMBER } from '../const.js';
 import start from '../index.js';
 
 const isPrime = (numb) => {
@@ -16,7 +16,7 @@ const isPrime = (numb) => {
 };
 
 const generateQuestionAndAnswer = () => {
-  const randomNumber = getRandomInteger(PRIME_MIN_NUMBER, PRIME_MAX_NUMBER);
+  const randomNumber = getRandomInteger({ max: PRIME_MAX_NUMBER });
 
   return {
     question: randomNumber,
